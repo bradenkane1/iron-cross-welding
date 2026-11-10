@@ -1,4 +1,4 @@
-import { type FormEvent, useLayoutEffect, useRef, useState } from 'react'
+import { type FormEvent, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Clock, Mail, Phone, ShieldCheck } from './icons'
 
 const shopServices = [
@@ -75,9 +75,19 @@ function columnsIn(grid: HTMLElement) {
 export default function App() {
   const gridRef = useRef<HTMLDivElement>(null)
   const [sent, setSent] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [columns, setColumns] = useState(1)
   const [rows, setRows] = useState(2)
   const shown = Math.min(work.length, rows * columns)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    function onKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
 
   useLayoutEffect(() => {
     const grid = gridRef.current
@@ -114,15 +124,31 @@ export default function App() {
       <header>
         <div className="wrap header-bar">
           <Logo />
-          <nav aria-label="Main">
-            <a href="#work">Our work</a>
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a className="nav-phone" href="tel:9493293012">
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="menu-toggle-bars" />
+          </button>
+          <nav id="site-menu" aria-label="Main" className={menuOpen ? 'is-open' : undefined}>
+            <a href="#work" onClick={() => setMenuOpen(false)}>
+              Our work
+            </a>
+            <a href="#services" onClick={() => setMenuOpen(false)}>
+              Services
+            </a>
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
+            <a className="nav-phone" href="tel:9493293012" onClick={() => setMenuOpen(false)}>
               <Phone size={18} />
               (949) 329-3012
             </a>
-            <a className="button button-small" href="#quote">
+            <a className="button button-small" href="#quote" onClick={() => setMenuOpen(false)}>
               Get a quote
             </a>
           </nav>
