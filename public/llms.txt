@@ -1,0 +1,29 @@
+# Iron Cross Welding & Fabrication
+
+> Custom welding and metal fabrication in Orange County, California. LA City and AWS D1.1 certified. Shop work and 24/7 mobile welding.
+
+Iron Cross is a Christian-based welding and fabrication business serving Orange County and surrounding areas. Jobs are done in the shop or on site. There is no published street address.
+
+Phone: (949) 329-3012
+Text: sms:9493293012
+Email: theironcrosswelding@gmail.com
+Hours: Monday to Saturday, 7:00 AM to 6:00 PM
+Emergency: 24/7 mobile dispatch
+
+This is a single-page site. Section links are on the same page.
+
+## Site
+
+- [Home](/#top): Custom welding and metal fabrication, certifications, and how to call
+- [Recent work](/#work): Photos of gates, fences, stairs, patio covers, and other steel work
+- [What we weld](/#services): Shop fabrication and mobile field work
+- [About](/#about): Faith, integrity, and LA City / AWS D1.1 certification
+- [Get a quote](/#quote): Quote form that opens an email draft. It does not send mail or attach files by itself
+- [Full site text](/llms-full.txt): The same facts written out in full
+- [Agent instructions](/agents.md): How an agent should use this site, including the quote form
+
+## Contact
+
+- [Call](tel:9493293012): (949) 329-3012
+- [Text](sms:9493293012): Text the same number
+- [Email](mailto:theironcrosswelding@gmail.com): theironcrosswelding@gmail.com
